@@ -10,12 +10,14 @@ class Keranjang extends Component {
                     nama : "Pupuk",
                     harga: 30000,
                     jumlah : 1,
+                    total : 30000,
                     gambar:"http://pertanian.pontianakkota.go.id/inventory/gambar/image_manager/photo60708809541734667111.jpg"
                 },
                 {
                     nama : "Bibit Mangrove",
                     harga: 90000,
                     jumlah : 4,
+                    total : 360000,
                     gambar:"https://images.tokopedia.net/img/cache/500-square/product-1/2018/8/22/2870500/2870500_60d9505a-d8f3-4c80-a976-c29d9b876962.jpg"
                 },
            ],
@@ -25,6 +27,7 @@ class Keranjang extends Component {
             gambar: "",  
             harga: 0,
             jumlah: 0,
+            total: 0,
             selectedItem: null,
        } 
        this.state.filterKeranjang=this.state.keranjang
@@ -44,6 +47,7 @@ class Keranjang extends Component {
                         gambar={item.gambar}
                         harga={item.harga}
                         jumlah={item.jumlah}
+                        total={item.total}
                         onEdit={ () => this.Edit(item)}
                         onDrop={ () => this.Drop(item)}
                         />
@@ -85,6 +89,13 @@ class Keranjang extends Component {
                                     ev.target.value}) }
                                     required />
 
+                                    Total Produk
+                                <input type="number" className="form-control mb-2"
+                                    value={this.state.total}
+                                    onChange={ ev => this.setState({total:
+                                    ev.target.value}) }
+                                    required />
+
                                     Gambar Produk
                                 <input type="url" className="form-control mb-2"
                                     value={this.state.cover}
@@ -110,7 +121,8 @@ class Keranjang extends Component {
             nama: "",
             gambar: "",
             harga: 0,
-            harga: 0,
+            jumlah: 0,
+            total: 0,
             action: "insert"
         })
     }
@@ -122,6 +134,7 @@ class Keranjang extends Component {
         gambar: item.gambar,
         jumlah: item.jumlah,
         harga: item.harga,
+        total: item.total,
         action: "update",
         selectedItem: item
         })
@@ -136,6 +149,7 @@ class Keranjang extends Component {
         nama: this.state.nama,
         harga: this.state.harga,
         jumlah: this.state.jumlah,
+        total: this.state.total,
         gambar: this.state.gambar,
         })
     }else if(this.state.action === "update"){
@@ -144,6 +158,7 @@ class Keranjang extends Component {
         tempKeranjang[index].nama = this.state.nama
         tempKeranjang[index].jumlah = this.state.judul
         tempKeranjang[index].harga = this.state.harga
+        tempKeranjang[index].harga = this.state.total
         tempKeranjang[index].gambar = this.state.gambar
     }
     this.setState({keranjang : tempKeranjang})

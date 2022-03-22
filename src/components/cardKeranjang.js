@@ -13,15 +13,19 @@ import React from "react"
                         {/* menampilkan deskripsi */}
                         <div className="col-7">
                             <h5 className="text-info">
-                                Nama: { this.props.nama }
+                                Nama: {this.props.nama}
                             </h5>
 
-                            <h6 className="text-danger">
+                            <h6 className="text-dark">
                                 Harga: Rp { this.props.harga}
                             </h6>
 
                             <h6 className="text-dark">
                                 Jumlah: { this.props.jumlah}
+                            </h6>
+
+                            <h6 className="text-danger">
+                                Total: Rp { this.props.total}
                             </h6>
 
                             {/* button untuk mengedit */}
