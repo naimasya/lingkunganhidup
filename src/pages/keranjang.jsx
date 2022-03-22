@@ -84,8 +84,8 @@ class Keranjang extends Component {
                                     
                                     Jumlah Produk
                                 <input type="number" className="form-control mb-2"
-                                    value={this.state.harga}
-                                    onChange={ ev => this.setState({harga:
+                                    value={this.state.jumlah}
+                                    onChange={ ev => this.setState({jumlah:
                                     ev.target.value}) }
                                     required />
 
